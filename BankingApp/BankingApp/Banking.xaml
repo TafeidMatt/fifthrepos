@@ -23,7 +23,7 @@
             <GroupBox Header="From Account:" Grid.Row="0">
                 <StackPanel Orientation="Vertical"   >
                     <RadioButton Name="fromSavingsRadioButton" Content="Savings" Margin="10" IsChecked="True" Click="fromSavingsRadioButton_Click"/>
-                    <RadioButton Name="fromChequeRadioButton" Content="Cheque"  Margin="10" Click="fromChequeRadioButton_Click"/>
+                    <RadioButton Name="fromChequeRadioButton" Content="Cheque"  Margin="10" Click="fromChequeRadioButton_Click" Checked="fromChequeRadioButton_Checked_1"/>
                     <RadioButton Name="fromInvestmentRadioButton" Content="Investment" Margin="10"  Click="fromInvestmentRadioButton_Click" />
                 </StackPanel>
             </GroupBox>

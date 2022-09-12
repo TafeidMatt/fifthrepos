@@ -52,7 +52,7 @@ namespace BankingApp
 
         private void transferButton_Click(object sender, RoutedEventArgs e)
         {
-// working out the transfer amount
+            // working out the transfer amount
 
             // validate transfer amount input
             try
@@ -93,7 +93,7 @@ namespace BankingApp
                     amountTextBox.SelectAll();
                 }
                 else
-                {
+                {   
                     // Test which From radio button and which To radio button are on and calculate appropriate balance
                     string whichRadioButtonsAreChecked = fromRadioButtonChecked + "&" + toRadioButtonChecked;
                     switch (whichRadioButtonsAreChecked)
@@ -132,8 +132,8 @@ namespace BankingApp
                             toBalanceLabel.Content = cInvestmentBalance.ToString("C");
                             break;
 
-                        case "ChequeRadioButtonOn&SavingsRadioButtonOn":  // from Cheque to Savings
-                            fromBalance = fromBalance - amountTransfer;
+                        case "ChequeRadioButtonOn&SavingsRadioButtonOn":  // from Cheque to Savings - deduct 2 for cheque
+                            fromBalance = fromBalance - amountTransfer - 2;
                             cChequeBalance = fromBalance;
                             fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
@@ -142,8 +142,8 @@ namespace BankingApp
                             toBalanceLabel.Content = cSavingsBalance.ToString("C");
                             break;
 
-                        case "ChequeRadioButtonOn&InvestmentRadioButtonOn":   // from Cheque to Investment
-                            fromBalance = fromBalance - amountTransfer;
+                        case "ChequeRadioButtonOn&InvestmentRadioButtonOn":   // from Cheque to Investment  - deduct 2 for cheque
+                            fromBalance = fromBalance - amountTransfer - 2;
                             cChequeBalance = fromBalance;
                             fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
