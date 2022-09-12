@@ -85,8 +85,8 @@ namespace BankingApp
                 amountTextBox.SelectAll();
             }
             else
-            // Handle insufficient fund
-                if (amountTransfer > fromBalance)
+            // Handle insufficient fund + 30 for transfer fee
+                if (amountTransfer > fromBalance + 30)
                 {
                     MessageBox.Show("Error! You have insufficient fund. Enter another amount");
                     Keyboard.Focus(amountTextBox);
@@ -152,8 +152,8 @@ namespace BankingApp
                             toBalanceLabel.Content = cInvestmentBalance.ToString("C");
                             break;
 
-                        case "InvestmentRadioButtonOn&SavingsRadioButtonOn":  // from Investment to Saving
-                            fromBalance = fromBalance - amountTransfer;
+                        case "InvestmentRadioButtonOn&SavingsRadioButtonOn":  // from Investment to Saving - 30 
+                            fromBalance = (fromBalance - amountTransfer) - 30 ;
                             cInvestmentBalance = fromBalance;
                             fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
@@ -162,8 +162,8 @@ namespace BankingApp
                             toBalanceLabel.Content = cSavingsBalance.ToString("C");
                             break;
 
-                        case "InvestmentRadioButtonOn&ChequeRadioButtonOn":  //from Investment to Cheque
-                            fromBalance = fromBalance - amountTransfer;
+                        case "InvestmentRadioButtonOn&ChequeRadioButtonOn":  //from Investment to Cheque - 30
+                            fromBalance = (fromBalance - amountTransfer) - 30;
                             cInvestmentBalance = fromBalance;
                             fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
